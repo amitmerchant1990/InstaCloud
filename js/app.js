@@ -27,4 +27,5 @@ function playSong(song){
       $('#embedPlayer').html(oEmbed.html)
     });
   });
+
 }
