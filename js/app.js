@@ -8,9 +8,14 @@ SC.oEmbed(track_url, { auto_play: true, height: '100px' }).then(function(oEmbed)
   $('#embedPlayer').html(oEmbed.html)
 });
 
-
 $('#search_song').keyup(function(){
   var song = $('#search_song').val();
+
+  setTimeout(playSong(song), 200);
+});
+
+function playSong(song){
+  $('#embedPlayer').html('');
 
   SC.get('/tracks', {
     q: song, license: 'cc-by-sa'
@@ -22,4 +27,4 @@ $('#search_song').keyup(function(){
       $('#embedPlayer').html(oEmbed.html)
     });
   });
-});
+}
